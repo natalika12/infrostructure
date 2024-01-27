@@ -23,6 +23,4 @@ data "aws_ami" "ubuntu" {
     }
   }
 
-  output id {
-    value = aws_instance.web.id
-  }
+ 
