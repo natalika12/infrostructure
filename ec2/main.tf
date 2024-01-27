@@ -23,4 +23,15 @@ data "aws_ami" "ubuntu" {
     }
   }
 
- 
+ resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic and all outbound traffic"
+  vpc_id      = data.terraform_remote_state.this.outputs.vpc_id
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
+
+
+
